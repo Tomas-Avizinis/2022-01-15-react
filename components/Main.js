@@ -10,7 +10,7 @@ const Main = ({player, gameStatus, myInventory, choosePlayer, game, money}) => {
                 <button onClick={()=>gameStatus('shop')}>Shop</button>
                 <button onClick={()=>gameStatus('arena')}>Arena</button>
             </div>
-            <div className={'flex'}>
+            <div className={'flex'} >
                 <div className={'main-container'}>
                     <header>My player</header>
                     <RaceCard player={player} choosePlayer={choosePlayer} gameStatus={gameStatus} game={game}/>

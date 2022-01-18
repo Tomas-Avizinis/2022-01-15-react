@@ -35,7 +35,7 @@ p {
 }
 b {
   font-weight: 900;
-  color: #92f642;
+  color: #34b4be;
 }
 .main-header {
   display: flex;
@@ -89,6 +89,43 @@ b {
   flex-direction: column;
 }
 
+/*ARENA*/
+button.attack{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px double #000000;
+  background-color: #34b4be;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #ffffff;
+}
+.arena {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fighter {
+  height: 350px;
+}
+
+.progress-bg {
+  width: 100%;
+  margin: 20px 0;
+  padding: 3px;
+  /*border: 1px dashed #000000;*/
+  background-color: #e3e3e3;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.progress {
+
+  background-color: #34b4be;
+  height: 25px;
+  border-radius: 15px;
+}
 
 
 

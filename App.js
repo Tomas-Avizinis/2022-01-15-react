@@ -3,7 +3,7 @@ import GameStart from "./components/GameStart";
 import {useState} from "react";
 import Main from "./components/Main";
 import Shop from "./components/Shop";
-// import(Shop)
+import Arena from "./components/Arena";
 
 
 
@@ -778,13 +778,11 @@ function App() {
   const addInventory=(item) => {
     if (myPlayer.inventorySlots>myInventory.length && money>=item.price && game==='shop') {
       setMyInventory([...myInventory, item]);
-      console.log('nuskaiciuoti pinigus', myPlayer.gold, item.price);
       setMoney(money-item.price);
     }
   }
 
-  // myPlayer.gold-item.price
-  // setMyItems(myItems.map(x => x.title === item.title ? tempItem : x));
+
 
 
   return (
@@ -792,6 +790,7 @@ function App() {
       {game==='start' && <GameStart players={players} monsters={monsters} gameStatus={gameStatus} choosePlayer={choosePlayer} game={game}/>}
       {game==='main' && <Main player={myPlayer} myInventory={myInventory} gameStatus={gameStatus} money={money}/>}
       {game==='shop' && <Shop player={myPlayer} trader={trader} addInventory={addInventory} myInventory={myInventory} gameStatus={gameStatus} money={money}/> }
+      {game==='arena' && <Arena player={myPlayer} trader={trader} addInventory={addInventory} myInventory={myInventory} gameStatus={gameStatus} money={money} monsters={monsters}/> }
     </div>
   );
 }
