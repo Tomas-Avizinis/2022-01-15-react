@@ -1,12 +1,13 @@
 import React from 'react';
 
-const RaceCard = ({player, choosePlayer, gameStatus}) => {
+const RaceCard = ({player, choosePlayer, gameStatus, game}) => {
 
     return (
         <div className={'race-card flex'} onClick={()=>{
-                gameStatus('main');
-                choosePlayer(player);
-                console.log('renkuosi zaideja', player);
+                    if (game==='start') {
+                        gameStatus('main');
+                        choosePlayer(player);
+                    }
                 }
             }>
 

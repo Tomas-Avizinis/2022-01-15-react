@@ -763,23 +763,35 @@ function App() {
     gold: 0
   });
   const [myInventory, setMyInventory] = useState([]);
+  const [money, setMoney] = useState(0);
 
-  const gameStatus=(st) => setGame(st);
-  const choosePlayer=(pl) => setMyPlayer(pl);
+  const gameStatus=(st) => {
+    setGame(st);
+    console.log('game status', st);
+  };
+  const choosePlayer=(pl) => {
+    setMyPlayer(pl);
+    setMoney(pl.gold);
+    console.log('renkuosi zaideja', pl);
+  };
 
   const addInventory=(item) => {
-    if (myPlayer.inventorySlots>myInventory.length) {
+    if (myPlayer.inventorySlots>myInventory.length && money>=item.price && game==='shop') {
       setMyInventory([...myInventory, item]);
-      console.log('nuskaiciuoti pinigus');
+      console.log('nuskaiciuoti pinigus', myPlayer.gold, item.price);
+      setMoney(money-item.price);
     }
   }
+
+  // myPlayer.gold-item.price
+  // setMyItems(myItems.map(x => x.title === item.title ? tempItem : x));
 
 
   return (
     <div className="App">
-      {game==='start' && <GameStart players={players} monsters={monsters} gameStatus={gameStatus} choosePlayer={choosePlayer}/>}
-      {game==='main' && <Main player={myPlayer} gameStatus={gameStatus} />}
-      {game==='shop' && <Shop player={myPlayer} trader={trader} addInventory={addInventory} myInventory={myInventory} gameStatus={gameStatus} /> }
+      {game==='start' && <GameStart players={players} monsters={monsters} gameStatus={gameStatus} choosePlayer={choosePlayer} game={game}/>}
+      {game==='main' && <Main player={myPlayer} myInventory={myInventory} gameStatus={gameStatus} money={money}/>}
+      {game==='shop' && <Shop player={myPlayer} trader={trader} addInventory={addInventory} myInventory={myInventory} gameStatus={gameStatus} money={money}/> }
     </div>
   );
 }

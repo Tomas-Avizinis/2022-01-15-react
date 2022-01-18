@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ItemCard from "./ItemCard";
 
 
-const Shop = ({trader, addInventory, myInventory}) => {
+const Shop = ({trader, addInventory, myInventory, gameStatus, player, money}) => {
 
     const [department, setDepartment] = useState('weapons')
     const shopFor=(item)=>setDepartment(item);
@@ -10,8 +10,8 @@ const Shop = ({trader, addInventory, myInventory}) => {
     return (
         <div>
             <div className={'main-header'}>
-                <button>Shop</button>
-                <button>Arena</button>
+                <button onClick={()=>gameStatus('main')}>Main</button>
+                <button onClick={()=>gameStatus('arena')}>Arena</button>
             </div>
             <div className={'flex'}>
                 <div className={'main-container'}>
@@ -24,7 +24,12 @@ const Shop = ({trader, addInventory, myInventory}) => {
                 </div>
 
                 <div className={'main-container'}>
-                    <header>My inventory</header>
+                    <header className={'flex'}>
+                        <p>My inventory</p>
+                        <p>Free slots: {player.inventorySlots-myInventory.length}</p>
+                        <p>Gold: {money}</p>
+                    </header>
+
                     {myInventory.map((item, idx)=><ItemCard item={item} key={idx}/>)}
                 </div>
             </div>
