@@ -1,0 +1,92 @@
+.App {
+  text-align: center;
+}
+.start-game {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+
+.race-card {
+  width: 300px;
+  /*height: 300px;*/
+  background-color: #094393;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  gap: 20px;
+  border-radius: 5px;
+  color: #34b4be;
+}
+
+.race-card>img {
+  width: 50%;
+  /*margin: -10px;*/
+  border: 1px solid black;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+p {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px dotted slateblue;
+}
+b {
+  font-weight: 900;
+  color: #92f642;
+}
+.main-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #34b4be;
+  height: 80px;
+}
+.main-header>button{
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+}
+.main-container {
+  position: relative;
+  margin: 25px;
+  padding: 60px 10px 10px 10px;
+  border: 1px dotted black;
+  flex: 1;
+  overflow: hidden;
+
+}
+.main-container>header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  padding: 10px;
+  background-color: #34b4be;
+}
+
+.item-card {
+  display: flex;
+  /*height: 120px;*/
+  padding: 10px;
+  border: 1px dotted black;
+
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+
+
+
